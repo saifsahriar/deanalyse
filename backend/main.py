@@ -37,7 +37,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173", 
         "http://localhost:3000",
-        "https://deanalyse.netlify.app"  # Netlify Production
+        "https://deanalyse.netlify.app",  # Netlify Production
+        "https://deanalyseme.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "HEAD"],
