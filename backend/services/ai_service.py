@@ -95,7 +95,7 @@ class AIService:
             
             # Execute the code
             # We expect the code to define a function analyze_data(df) or set a variable 'result'
-            exec(code, {}, local_vars)
+            exec(code, local_vars)
             
             sys.stdout = old_stdout
             captured_output = redirected_output.getvalue()
@@ -136,8 +136,15 @@ Data Schema:
 {safe_context}
 
 Determine if you need to run Python code on the dataframe 'df' to answer this question.
-Questions asking for "top products", "revenue calculations", "aggregations", "filtering", or "specific counts" usually requires code.
-Questions about "general business advice" or "interpreting the visible summary" might not.
+
+CRITICAL: Questions asking for "insights", "summary", "trends", "patterns", "overview", "top products", "revenue", or "performance" ALMOST ALWAYS REQUIRE CODE to calculate the actual metrics. 
+Only simple questions about the number of rows or column names do not require code.
+
+If the user asks for "insights" or a generic "summary", you MUST generate code to calculate a comprehensive report including:
+- Total Revenue and Total Sales Volume
+- Sales by Category (if category column exists)
+- Top 5 Products by Revenue
+- Monthly/Daily Revenue Trends (if date column exists)
 
 If YES (you need code):
 Write a Python script.
