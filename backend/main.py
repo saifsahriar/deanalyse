@@ -40,7 +40,7 @@ app.add_middleware(
         "https://deanalyse.netlify.app"  # Netlify Production
     ],
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "HEAD"],
     allow_headers=["Content-Type", "Authorization"],
 )
 
