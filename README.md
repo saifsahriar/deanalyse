@@ -1,4 +1,4 @@
-7# DeAnalyse - AI Data Analyst
+# DeAnalyse - AI Data Analyst
 
 DeAnalyse is a full-stack AI-powered application that helps you analyze, visualize, and chat with your data. It combines a modern React frontend with a robust Python backend (FastAPI + Pandas + Gemini AI).
 
