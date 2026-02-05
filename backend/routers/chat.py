@@ -28,10 +28,12 @@ async def chat(request: ChatRequest):
                 "response": "I don't have any data loaded yet. Please upload a file first so I can analyze it."
             }
             
+        df = DATA_CONTEXT.get('df')
+        
         # Create a string representation of the context
         context_str = str(context_data)
         
-        response = await ai_service.generate_response(context_str, request.query)
+        response = await ai_service.generate_response(context_str, request.query, df)
         
         return {
             "response": response

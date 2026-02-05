@@ -76,6 +76,7 @@ async def upload_file(file: UploadFile = File(...)):
         
         # 4. Save Context (Simulated Session)
         DATA_CONTEXT['latest'] = summary
+        DATA_CONTEXT['df'] = df
         
         # 5. Get AI KPI Suggestions
         # This is async, so we await it
