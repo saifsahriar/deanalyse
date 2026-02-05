@@ -78,12 +78,12 @@ export function DashboardPage() {
                         ...frontendAnalysis,
                         kpis: [
                             {
-                                title: "Total Rows",
+                                id: "backend_total_rows",
+                                label: "Total Rows",
                                 value: backendSummary.rowCount.toLocaleString(),
-                                change: "",
-                                trend: "neutral"
+                                type: "count"
                             },
-                            ...frontendAnalysis.kpis.filter(k => k.title !== "Total Records")
+                            ...frontendAnalysis.kpis.filter(k => k.label !== "Total Records")
                         ]
                     });
 
