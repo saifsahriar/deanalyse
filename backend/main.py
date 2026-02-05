@@ -32,19 +32,22 @@ async def add_security_headers(request: Request, call_next):
     return response
 
 # Security: Proper CORS configuration
-# In production, replace with your actual frontend domain
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],  # Frontend URLs
+    allow_origins=[
+        "http://localhost:5173", 
+        "http://localhost:3000",
+        "https://deanalyse.netlify.app"  # Netlify Production
+    ],
     allow_credentials=True,
-    allow_methods=["GET", "POST"],  # Only allow necessary methods
+    allow_methods=["GET", "POST"],
     allow_headers=["Content-Type", "Authorization"],
 )
 
 # Security: Prevent host header attacks
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=["localhost", "127.0.0.1", "*.localhost"]
+    allowed_hosts=["localhost", "127.0.0.1", "*.localhost", "*.onrender.com"]
 )
 
 from routers import upload, chat
