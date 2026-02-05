@@ -1,4 +1,4 @@
-# DeAnalyse - AI Data Analyst
+7# DeAnalyse - AI Data Analyst
 
 DeAnalyse is a full-stack AI-powered application that helps you analyze, visualize, and chat with your data. It combines a modern React frontend with a robust Python backend (FastAPI + Pandas + Gemini AI).
 
@@ -27,7 +27,7 @@ npm install
 ```
 
 ### 2. Configure Environment (Optional)
-- Create `backend/.env` with `GEMINI_API_KEY=your_key_here` for AI features.
+- Create `backend/.env` with `OPENAI_API_KEY=your_key_here` for AI features.
 - Create `.env` in root with Supabase keys for real authentication.
 
 ## Quick Start (Recommended)
