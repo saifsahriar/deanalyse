@@ -47,7 +47,7 @@ app.add_middleware(
 # Security: Prevent host header attacks
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=["localhost", "127.0.0.1", "*.localhost", "*.onrender.com"]
+    allowed_hosts=["*"]  # Allowed all for cloud compatibility, CORS still protects the API
 )
 
 from routers import upload, chat
