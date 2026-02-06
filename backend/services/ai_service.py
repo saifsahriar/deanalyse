@@ -150,6 +150,8 @@ If YES (you need code):
 Write a Python script.
 - The script MUST define a function `def analyze_data(df):` that takes the dataframe and returns the answer/result.
 - Use pandas for calculations. 
+- IMPORTANT: When resampling by month, use 'ME' (Month End) instead of 'M'. 'M' is DEPRECATED and will cause errors. DO NOT USE 'M'.
+  Example correct usage: `df.set_index('Date').resample('ME')['Revenue'].sum()`
 - Handle potential missing values or data type issues if obvious.
 - Return the result as a string or a structured object (dict/list) that is easy to read.
 - Wrap the code in ```python ... ```.
