@@ -38,7 +38,8 @@ app.add_middleware(
         "http://localhost:5173", 
         "http://localhost:3000",
         "https://deanalyse.netlify.app",  # Netlify Production
-        "https://deanalyseme.onrender.com"
+        "https://deanalyseme.onrender.com",
+        "*"  # Allow all for cross-device testing (LAN)
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "HEAD"],
