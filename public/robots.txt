@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /upload
+Disallow: /chat
+Disallow: /api/
+
+Sitemap: https://deanalyse.netlify.app/sitemap.xml
