@@ -24,7 +24,7 @@ class DataService:
             "rowCount": len(df),
             "columnCount": len(df.columns),
             "columns": [],
-            "preview": df.head(5).to_dict(orient='records')
+            "preview": df.head(5).astype(object).where(pd.notnull(df), None).to_dict(orient='records')
         }
 
         for col in df.columns:
@@ -72,10 +72,16 @@ class DataService:
             outliers = col_data[abs((col_data - mean) / std) > 3]
             
             if not outliers.empty:
+                # Sanitize outliers for JSON
+                try:
+                    examples = outliers.head(3).astype(object).where(pd.notnull(outliers), None).tolist()
+                except:
+                    examples = outliers.head(3).tolist()
+                    
                 anomalies.append({
                     "column": col,
                     "count": len(outliers),
-                    "examples": outliers.head(3).tolist(),
+                    "examples": examples,
                     "reason": "Z-Score > 3 (Statistical Outlier)"
                 })
                 
